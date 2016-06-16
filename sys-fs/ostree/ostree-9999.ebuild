@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -12,10 +12,10 @@ if [[ ${PV} = 9999 ]]; then
 	inherit gnome2-live
 fi
 
-DESCRIPTION="Virtual filesystem implementation for gio"
-HOMEPAGE="https://git.gnome.org/browse/gvfs"
+DESCRIPTION="OSTree is a tool for managing bootable, immutable, versioned filesystem trees."
+HOMEPAGE="https://wiki.gnome.org/Projects/OSTree"
 
-LICENSE="LGPL-2+"
+LICENSE="LGPL-2"
 SLOT="0"
 
 IUSE="introspection doc man"
