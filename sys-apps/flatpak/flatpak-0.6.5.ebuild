@@ -33,7 +33,8 @@ DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.35
 	>=dev-util/pkgconfig-0.24
 	introspection? ( >=dev-libs/gobject-introspection-1.40 )
-	doc? ( >=dev-util/gtk-doc-1.20 )
+	doc? ( >=dev-util/gtk-doc-1.20
+	       dev-libs/libxslt )
 "
 
 src_prepare() {
@@ -47,7 +48,7 @@ src_configure() {
 
 	gnome2_src_configure \
 		--with-libarchive \
-		$(use_enable doc gtk-doc) \
+		$(use_enable doc documentation) \
 		$(use_enable introspection)
 
 }
