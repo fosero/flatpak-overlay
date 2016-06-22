@@ -30,4 +30,4 @@ Adapt <repo-location> to a path of your choosing and then run `emerge --sync`, P
 
 You can also use the Layman tool to add and sync the overlay, read the instructions on the [Gentoo Wiki](http://wiki.gentoo.org/wiki/Layman#Adding_custom_overlays).
 
-The repositories.xml can be found at `https://github.com/fosero/flatpak-overlay/repositories.xml`.
+The repositories.xml can be found at `https://raw.githubusercontent.com/fosero/flatpak-overlay/master/repositories.xml`.
