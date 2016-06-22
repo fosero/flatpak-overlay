@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo priority="50" quality="experimental" status="unofficial">
+    <name><![CDATA[flatpak-overlay]]></name>
+    <description lang="en"><![CDATA[Unofficial portage overlay for Gentoo Linux providing ebuilds for the Flatpak application distribution system.]]></description>
+    <homepage>https://github.com/fosero/flatpak-overlay</homepage>
+    <owner type="person">
+      <email>N/A</email>
+      <name><![CDATA[fosero]]></name>
+    </owner>
+    <source type="git">git://github.com/fosero/flatpak-overlay.git</source>
+    <feed>https://github.com/fosero/flatpak-overlay/commits/master.atom</feed>
+  </repo>
+</repositories>
