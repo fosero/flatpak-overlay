@@ -24,7 +24,7 @@ sync-uri = git://github.com/fosero/flatpak-overlay.git
 auto-sync = Yes
 ```
 
-Adapt <repo-location> to a path of your choosing and then run `emerge --sync`, Portage should now find and update the repository.
+Change `repo-location` to a path of your choosing and then run `emerge --sync`, Portage should now find and update the repository.
 
 ### Layman
 
