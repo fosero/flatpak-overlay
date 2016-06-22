@@ -3,30 +3,19 @@
 # $Id$
 
 EAPI="5"
-GCONF_DEBUG="no"
-GNOME2_LA_PUNT="yes"
-AT_NOEAUTOMAKE="yes"
 
-inherit autotools bash-completion-r1 eutils gnome2
-if [[ ${PV} = 9999 ]]; then
-	inherit gnome2-live
-fi
+inherit autotools eutils
 
+SRC_URI="https://github.com/${PN}dev/${PN}/releases/download/v${PV}/${P}.tar.xz"
 DESCRIPTION="OSTree is a tool for managing bootable, immutable, versioned filesystem trees."
-HOMEPAGE="https://wiki.gnome.org/Projects/OSTree"
+HOMEPAGE="https://github.com/ostreedev/ostree"
 
 LICENSE="LGPL-2"
 SLOT="0"
 
 IUSE="introspection doc man"
 
-if [[ ${PV} = 9999 ]]; then
-	KEYWORDS=""
-	DOCS=""
-	IUSE="${IUSE} doc"
-else
-	KEYWORDS="~amd64"
-fi
+KEYWORDS="amd64"
 
 # NOTE: soup seems optional, but during the build it isn't
 RDEPEND="
@@ -50,19 +39,17 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 
-	# FIXME: eautogen fails to do the right thing for some reason
-	./autogen.sh
-
 	# FIXME: should work through the build system really
 	epatch ${FILESDIR}/0001-ot-gpg-utils-use-gentoo-include-path.patch
 
-	gnome2_src_prepare
+	# FIXME: eautogen fails to do the right thing for some reason
+	./autogen.sh
 
 }
 
 src_configure() {
 
-	gnome2_src_configure \
+	econf \
 		--without-dracut \
 		--without-mkinitcpio \
 		--with-libarchive \

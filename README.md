@@ -7,8 +7,6 @@ The Flatpak ebuild does not track actual applications installed by Flatpak like 
 
 ## How to use this overlay?
 
-The OSTree ebuild used in the tree is a *live ebuild* for now, requiring it to be unmasked by adding `=sys-fs/ostree-9999 **` to `/etc/portage/package.keywords`. See the [Gentoo wiki](https://wiki.gentoo.org/wiki//etc/portage/package.accept_keywords) for more info.
-
 There are two main methods for making use of this overlay, discussed in the sections below.
 
 ### Local overlays
