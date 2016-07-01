@@ -2,10 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
-GCONF_DEBUG="no"
+EAPI="6"
 
-inherit autotools gnome2 linux-info
+inherit autotools linux-info
 
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 DESCRIPTION="Application distribution framework"
@@ -19,7 +18,7 @@ IUSE="archive doc introspection policykit seccomp"
 # FIXME: pin the only working libgsystem version
 RDEPEND="
 	=dev-libs/libgsystem-2015.1
-	>=sys-fs/ostree-2016.5
+	>=sys-fs/ostree-2016.6
 	>=net-libs/libsoup-2.4
 	dev-libs/glib:2
 	sys-fs/fuse
@@ -46,20 +45,14 @@ pkg_setup() {
 
 }
 
-src_prepare() {
-
-        eautoreconf
-        gnome2_src_prepare
-
-}
-
-
 src_configure() {
 
 	# FIXME: the gtk-doc check doesn't seem to be working
-	gnome2_src_configure \
+	# FIXME: split out bubblewrap
+	econf \
 		--enable-sandboxed-triggers \
 		--enable-xauth \
+		--without-system-bubblewrap \
 		$(use_with archive libarchive) \
 		$(use_enable doc documentation) \
 		$(use_enable doc gtk-doc) \
