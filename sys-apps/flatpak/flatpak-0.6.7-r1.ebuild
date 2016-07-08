@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -13,7 +13,7 @@ HOMEPAGE="http://flatpak.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="archive doc introspection policykit seccomp"
+IUSE="archive doc gnome gtk introspection policykit seccomp"
 
 # FIXME: pin the only working libgsystem version
 RDEPEND="
@@ -36,6 +36,13 @@ DEPEND="${RDEPEND}
 	introspection? ( >=dev-libs/gobject-introspection-1.40 )
 	doc? ( >=dev-util/gtk-doc-1.20
 	       dev-libs/libxslt )
+"
+# FIXME: is there a nicer way to do this?
+PDEPEND="
+	gtk? ( sys-apps/xdg-desktop-portal
+	       sys-apps/xdg-desktop-portal-gtk )
+	gnome? ( sys-apps/xdg-desktop-portal
+		 sys-apps/xdg-desktop-portal-gtk )
 "
 
 pkg_setup() {
