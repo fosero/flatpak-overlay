@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI="6"
 
-inherit autotools eutils
+inherit autotools eutils systemd
 
 SRC_URI="https://github.com/${PN}dev/${PN}/releases/download/v${PV}/${P}.tar.xz"
 DESCRIPTION="OSTree is a tool for managing bootable, immutable, versioned filesystem trees."
@@ -13,7 +13,7 @@ HOMEPAGE="https://github.com/ostreedev/ostree"
 LICENSE="LGPL-2"
 SLOT="0"
 
-IUSE="introspection doc man"
+IUSE="introspection doc man systemd"
 
 KEYWORDS="amd64"
 
@@ -27,6 +27,7 @@ RDEPEND="
 	>=sys-fs/fuse-2.9.2
 	>=app-crypt/gpgme-1.1.8
 	>=app-arch/libarchive-2.8
+	systemd? ( sys-apps/systemd )
 "
 DEPEND="${RDEPEND}
 	sys-devel/bison
@@ -40,8 +41,9 @@ DEPEND="${RDEPEND}
 src_prepare() {
 
 	# FIXME: should work through the build system really
-	epatch ${FILESDIR}/0001-ot-gpg-utils-use-gentoo-include-path.patch
+	eapply ${FILESDIR}/0001-ot-gpg-utils-use-gentoo-include-path.patch
 
+	eapply_user
 	# FIXME: eautogen fails to do the right thing for some reason
 	./autogen.sh
 
@@ -49,6 +51,14 @@ src_prepare() {
 
 src_configure() {
 
+	local myconf=()
+
+	# FIXME: it is not possible to hard disable systemd in the configure script.
+	# systemd only seems needed for booting ostree
+	use systemd \
+		&& myconf+=( --with-systemdsystemunitdir="$(systemd_get_systemunitdir)" )
+
+	# FIXME: selinux should be use-flagged
 	econf \
 		--without-dracut \
 		--without-mkinitcpio \
@@ -58,6 +68,7 @@ src_configure() {
 		--with-soup \
 		$(use_enable introspection) \
 		$(use_enable doc gtk-doc) \
-		$(use_enable man)
+		$(use_enable man) \
+		"${myconf[@]}"
 
 }
