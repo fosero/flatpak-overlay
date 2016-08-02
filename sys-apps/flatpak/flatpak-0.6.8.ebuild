@@ -18,7 +18,7 @@ IUSE="archive doc gnome gtk introspection policykit seccomp"
 # FIXME: pin the only working libgsystem version
 RDEPEND="
 	=dev-libs/libgsystem-2015.1
-	>=sys-fs/ostree-2016.6
+	>=sys-fs/ostree-2016.7
 	>=net-libs/libsoup-2.4
 	dev-libs/glib:2
 	sys-fs/fuse
@@ -31,7 +31,7 @@ RDEPEND="
 	seccomp? ( sys-libs/libseccomp )
 "
 DEPEND="${RDEPEND}
-	>=dev-util/intltool-0.35
+	>=sys-devel/gettext-0.18.2
 	>=dev-util/pkgconfig-0.24
 	introspection? ( >=dev-libs/gobject-introspection-1.40 )
 	doc? ( >=dev-util/gtk-doc-1.20
