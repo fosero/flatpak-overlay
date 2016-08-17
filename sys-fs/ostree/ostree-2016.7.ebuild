@@ -20,6 +20,7 @@ KEYWORDS="amd64"
 # NOTE: soup seems optional, but during the build it isn't
 RDEPEND="
 	>=dev-libs/glib-2.40:2
+	=dev-libs/libgsystem-2015.1
 	>=app-arch/xz-utils-5.0.5
 	sys-libs/zlib
 	>=net-libs/libsoup-2.40
@@ -43,6 +44,8 @@ src_prepare() {
 	eapply ${FILESDIR}/0001-ot-gpg-utils-use-gentoo-include-path.patch
 
 	eapply_user
+	# FIXME: eautogen fails to do the right thing for some reason
+	./autogen.sh
 
 }
 
