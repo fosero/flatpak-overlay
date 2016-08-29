@@ -15,9 +15,7 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE="archive doc gnome gtk introspection policykit seccomp"
 
-# FIXME: pin the only working libgsystem version
 RDEPEND="
-	=dev-libs/libgsystem-2015.1
 	>=sys-fs/ostree-2016.7
 	>=net-libs/libsoup-2.4
 	dev-libs/glib:2
