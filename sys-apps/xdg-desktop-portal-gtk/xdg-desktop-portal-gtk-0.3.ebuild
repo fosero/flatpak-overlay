@@ -11,11 +11,14 @@ HOMEPAGE="https://github.com/flatpak/xdg-desktop-portal-gtk"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE=""
+IUSE="wayland X"
 
+# The X and wayland options are autodetected
 RDEPEND="
 	dev-libs/glib:2[dbus]
 	x11-libs/gtk+:3
+	wayland? ( >=x11-libs/gtk+-3.21.5:3[wayland] )
+	X? ( x11-libs/gtk+:3[X] )
 	sys-apps/xdg-desktop-portal
 "
 DEPEND="${RDEPEND}
