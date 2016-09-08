@@ -69,3 +69,13 @@ src_configure() {
 		"${myconf[@]}"
 
 }
+
+src_install() {
+
+	default
+
+	# FIXME: figure out what is failing
+	# see https://github.com/fosero/flatpak-overlay/issues/1
+	rm -f ${D}/etc/grub.d/15_ostree
+
+}
