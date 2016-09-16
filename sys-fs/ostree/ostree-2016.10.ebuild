@@ -6,7 +6,8 @@ EAPI="6"
 
 inherit autotools eutils systemd
 
-SRC_URI="https://github.com/${PN}dev/${PN}/releases/download/v${PV}/${P}.tar.xz"
+#SRC_URI="https://github.com/${PN}dev/${PN}/releases/download/v${PV}/${P}.tar.xz"
+SRC_URI="http://pkgs.fedoraproject.org/repo/pkgs/${PN}/${P}.tar.xz/f062b0898bb1867c7ed1219b72f05c98/${P}.tar.xz"
 DESCRIPTION="OSTree is a tool for managing bootable, immutable, versioned filesystem trees."
 HOMEPAGE="https://github.com/ostreedev/ostree"
 
@@ -43,6 +44,8 @@ src_prepare() {
 	eapply ${FILESDIR}/0001-ot-gpg-utils-use-gentoo-include-path.patch
 
 	eapply_user
+
+	./autogen.sh || die
 
 }
 
