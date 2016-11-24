@@ -22,6 +22,6 @@ RDEPEND="
 	sys-apps/xdg-desktop-portal
 "
 DEPEND="${RDEPEND}
-	>=dev-util/pkgconfig-0.24
+	virtual/pkgconfig
 	>=sys-devel/gettext-0.18.3
 "
