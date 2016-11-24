@@ -19,7 +19,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	>=sys-devel/gettext-0.18.3
-	>=dev-util/pkgconfig-0.24
+	virtual/pkgconfig
 	doc? ( app-text/xmlto
 	       app-text/docbook-xml-dtd:4.3 )
 "

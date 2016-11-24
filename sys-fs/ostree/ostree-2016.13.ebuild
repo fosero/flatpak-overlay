@@ -30,7 +30,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	sys-devel/bison
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	sys-fs/e2fsprogs
 	introspection? ( >=dev-libs/gobject-introspection-1.34 )
 	doc? ( >=dev-util/gtk-doc-1.15 )

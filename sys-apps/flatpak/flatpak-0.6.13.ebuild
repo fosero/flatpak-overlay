@@ -30,7 +30,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	>=sys-devel/gettext-0.18.2
-	>=dev-util/pkgconfig-0.24
+	virtual/pkgconfig
 	dev-util/gdbus-codegen
 	introspection? ( >=dev-libs/gobject-introspection-1.40 )
 	doc? ( >=dev-util/gtk-doc-1.20
