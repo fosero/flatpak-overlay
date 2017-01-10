@@ -56,6 +56,7 @@ src_configure() {
 	# FIXME: the gtk-doc check doesn't seem to be working
 	# FIXME: split out bubblewrap
 	econf \
+		--localstatedir="${EPREFIX}"/var \
 		--enable-sandboxed-triggers \
 		--enable-xauth \
 		--without-system-bubblewrap \
