@@ -13,7 +13,7 @@ HOMEPAGE="http://flatpak.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="archive doc gnome gtk introspection policykit seccomp"
+IUSE="doc gnome gtk introspection policykit seccomp"
 
 RDEPEND="
 	>=sys-fs/ostree-2016.14
@@ -24,7 +24,7 @@ RDEPEND="
 	dev-libs/json-glib
 	>=dev-libs/elfutils-0.8.12
 	x11-apps/xauth
-	archive? ( >=app-arch/libarchive-2.8 )
+	>=app-arch/libarchive-2.8
 	policykit? ( >=sys-auth/polkit-0.98 )
 	seccomp? ( sys-libs/libseccomp )
 "
@@ -59,7 +59,6 @@ src_configure() {
 		--enable-sandboxed-triggers \
 		--enable-xauth \
 		--without-system-bubblewrap \
-		$(use_with archive libarchive) \
 		$(use_enable doc documentation) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable introspection) \
