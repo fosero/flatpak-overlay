@@ -6,32 +6,38 @@ EAPI="6"
 
 inherit autotools eutils systemd
 
-SRC_URI="https://github.com/${PN}dev/${PN}/releases/download/v${PV}/${P}.tar.xz"
+SRC_URI="https://github.com/ostreedev/ostree/releases/download/v${PV}/${P}.tar.xz"
 DESCRIPTION="OSTree is a tool for managing bootable, immutable, versioned filesystem trees."
 HOMEPAGE="https://github.com/ostreedev/ostree"
 
 LICENSE="LGPL-2"
 SLOT="0"
 
-IUSE="introspection doc man systemd"
+IUSE="curl introspection doc man +soup systemd"
 
 KEYWORDS="amd64"
 
-# NOTE: soup seems optional, but during the build it isn't
+# NOTE: soup/curl is optional, but not if you want to use flatpaks in a meaningful way,
+# so we force it.
+REQUIRED_USE="|| ( soup curl )"
+
+# NOTE2: curl needs soup for tests right now (17 Feb 2017)
 RDEPEND="
 	>=dev-libs/glib-2.40:2
 	>=app-arch/xz-utils-5.0.5
 	sys-libs/zlib
-	>=net-libs/libsoup-2.40
 	>=sys-fs/fuse-2.9.2
 	>=app-crypt/gpgme-1.1.8
 	>=app-arch/libarchive-2.8
+	curl? ( >=net-misc/curl-7.29 )
+	soup? ( >=net-libs/libsoup-2.40 )
 	systemd? ( sys-apps/systemd )
 "
 DEPEND="${RDEPEND}
 	sys-devel/bison
 	virtual/pkgconfig
 	sys-fs/e2fsprogs
+	curl? ( >=net-libs/libsoup-2.40 )
 	introspection? ( >=dev-libs/gobject-introspection-1.34 )
 	doc? ( >=dev-util/gtk-doc-1.15 )
 	man? ( dev-libs/libxslt )
@@ -57,6 +63,14 @@ src_configure() {
 	use systemd \
 		&& myconf+=( --with-systemdsystemunitdir="$(systemd_get_systemunitdir)" )
 
+	if ! use soup && use curl; then
+		myconf+=( $(use_with curl) )
+	fi
+
+	if use soup; then
+		myconf+=( $(use_with soup) )
+	fi
+
 	# FIXME: selinux should be use-flagged
 	econf \
 		--without-dracut \
@@ -64,7 +78,6 @@ src_configure() {
 		--with-libarchive \
 		--without-selinux \
 		--without-libmount \
-		--with-soup \
 		$(use_enable introspection) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable man) \
