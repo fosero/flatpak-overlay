@@ -1,8 +1,10 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI="6"
+
+inherit systemd
 
 SRC_URI="https://github.com/flatpak/${PN}/releases/download/${PV}/${P}.tar.xz"
 DESCRIPTION="GTK/GNOME backend for xdg-desktop-portal"
@@ -15,13 +17,20 @@ IUSE="wayland X"
 
 # The X and wayland options are autodetected
 RDEPEND="
-	dev-libs/glib:2[dbus]
-	x11-libs/gtk+:3
+	>=dev-libs/glib-2.44:2[dbus]
+	>=x11-libs/gtk+-3.14:3
 	wayland? ( >=x11-libs/gtk+-3.21.5:3[wayland] )
-	X? ( x11-libs/gtk+:3[X] )
+	X? ( >=x11-libs/gtk+-3.14:3[X] )
 	sys-apps/xdg-desktop-portal
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	>=sys-devel/gettext-0.18.3
 "
+
+src_configure() {
+
+	econf \
+		--with-systemduserunitdir="$(systemd_get_userunitdir)"
+
+}
