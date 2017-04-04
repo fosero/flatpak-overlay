@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-207 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI="6"
 
@@ -18,7 +17,7 @@ IUSE="doc gnome gtk introspection policykit seccomp"
 RDEPEND="
 	>=sys-fs/libostree-2016.14
 	>=net-libs/libsoup-2.4
-	dev-libs/glib:2
+	>=dev-libs/glib-2.44:2
 	sys-fs/fuse
 	sys-apps/dbus
 	dev-libs/json-glib
@@ -29,6 +28,7 @@ RDEPEND="
 	seccomp? ( sys-libs/libseccomp )
 "
 DEPEND="${RDEPEND}
+	>=sys-devel/automake-1.13.4
 	>=sys-devel/gettext-0.18.2
 	virtual/pkgconfig
 	dev-util/gdbus-codegen
