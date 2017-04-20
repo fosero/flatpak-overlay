@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI="6"
 
@@ -13,7 +12,7 @@ HOMEPAGE="https://github.com/ostreedev/ostree"
 LICENSE="LGPL-2"
 SLOT="0"
 
-IUSE="curl introspection doc man +soup systemd"
+IUSE="curl introspection doc man openssl +soup systemd"
 
 KEYWORDS="amd64"
 
@@ -30,6 +29,7 @@ RDEPEND="
 	>=app-crypt/gpgme-1.1.8
 	>=app-arch/libarchive-2.8
 	curl? ( >=net-misc/curl-7.29 )
+	openssl? ( >=dev-libs/openssl-1.0.1 )
 	soup? ( >=net-libs/libsoup-2.40 )
 	systemd? ( sys-apps/systemd )
 "
@@ -81,6 +81,7 @@ src_configure() {
 		$(use_enable introspection) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable man) \
+		$(use_with openssl) \
 		"${myconf[@]}"
 
 }
