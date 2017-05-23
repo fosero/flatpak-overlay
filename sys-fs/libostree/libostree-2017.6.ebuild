@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/ostreedev/ostree"
 LICENSE="LGPL-2"
 SLOT="0"
 
-IUSE="curl introspection doc man openssl +soup systemd"
+IUSE="curl introspection doc +libmount man openssl +soup +systemd"
 
 KEYWORDS="amd64"
 
@@ -32,6 +32,7 @@ RDEPEND="
 	openssl? ( >=dev-libs/openssl-1.0.1 )
 	soup? ( >=net-libs/libsoup-2.40 )
 	systemd? ( sys-apps/systemd )
+	libmount? ( >=sys-apps/util-linux-2.23 )
 "
 DEPEND="${RDEPEND}
 	sys-devel/bison
@@ -77,10 +78,10 @@ src_configure() {
 		--without-mkinitcpio \
 		--with-libarchive \
 		--without-selinux \
-		--without-libmount \
 		$(use_enable introspection) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable man) \
+		$(use_with libmount) \
 		$(use_with openssl) \
 		"${myconf[@]}"
 
