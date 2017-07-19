@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/ostreedev/ostree"
 LICENSE="LGPL-2"
 SLOT="0"
 
-IUSE="curl introspection doc +libmount man openssl +soup +systemd"
+IUSE="avahi curl introspection doc +libmount man openssl +soup +systemd"
 
 KEYWORDS="amd64"
 
@@ -28,6 +28,7 @@ RDEPEND="
 	>=sys-fs/fuse-2.9.2
 	>=app-crypt/gpgme-1.1.8
 	>=app-arch/libarchive-2.8
+	avahi? ( >=net-dns/avahi-0.6.31 )
 	curl? ( >=net-misc/curl-7.29 )
 	openssl? ( >=dev-libs/openssl-1.0.1 )
 	soup? ( >=net-libs/libsoup-2.40 )
@@ -81,6 +82,7 @@ src_configure() {
 		$(use_enable introspection) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable man) \
+		$(use_with avahi) \
 		$(use_with libmount) \
 		$(use_with openssl) \
 		"${myconf[@]}"
