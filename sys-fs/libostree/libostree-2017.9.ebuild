@@ -45,23 +45,12 @@ DEPEND="${RDEPEND}
 	man? ( dev-libs/libxslt )
 "
 
-src_prepare() {
-
-	# FIXME: should work through the build system really
-	eapply ${FILESDIR}/0001-ot-gpg-utils-use-gentoo-include-path.patch
-
-	eapply_user
-
-	eautoreconf
-
-}
-
 src_configure() {
 
 	local myconf=()
 
 	# FIXME: it is not possible to hard disable systemd in the configure script.
-	# systemd only seems needed for booting ostree
+	# systemd only seems needed for booting ostree images
 	use systemd \
 		&& myconf+=( --with-systemdsystemunitdir="$(systemd_get_systemunitdir)" )
 
@@ -93,7 +82,6 @@ src_install() {
 
 	default
 
-	# FIXME: figure out what is failing
 	# see https://github.com/fosero/flatpak-overlay/issues/1
 	rm -f ${D}/etc/grub.d/15_ostree
 
