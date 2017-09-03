@@ -22,7 +22,6 @@ RDEPEND="
 	sys-fs/fuse
 	sys-apps/dbus
 	dev-libs/json-glib
-	>=dev-libs/elfutils-0.8.12
 	x11-apps/xauth
 	>=app-arch/libarchive-2.8
 	>=app-crypt/gpgme-1.1.8
