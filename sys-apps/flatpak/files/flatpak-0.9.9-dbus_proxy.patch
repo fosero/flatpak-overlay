@@ -1,0 +1,12 @@
+diff --git a/common/flatpak-run.c b/common/flatpak-run.c
+index b723bad8..27bbb000 100644
+--- a/common/flatpak-run.c
++++ b/common/flatpak-run.c
+@@ -277,7 +277,7 @@ flatpak_context_shared_to_args (FlatpakContextShares shares,
+ static FlatpakPolicy
+ flatpak_policy_from_string (const char *string, GError **error)
+ {
+-  const char *policies[] = { "none", "see", "talk", "own", NULL };
++  const char *policies[] = { "none", "see", "filtered", "talk", "own", NULL };
+   int i;
+   g_autofree char *values = NULL;
