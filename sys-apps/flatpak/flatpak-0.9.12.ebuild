@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-inherit autotools eutils linux-info
+inherit autotools linux-info
 
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 DESCRIPTION="Application distribution framework"
@@ -44,14 +44,6 @@ PDEPEND="
 	gnome? ( sys-apps/xdg-desktop-portal
 		 sys-apps/xdg-desktop-portal-gtk )
 "
-
-src_prepare() {
-
-	epatch ${FILESDIR}/${P}-dbus_proxy.patch
-
-	default
-
-}
 
 pkg_pretend() {
 
