@@ -23,7 +23,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=sys-devel/gettext-0.18.2
 	virtual/pkgconfig
-	>=dev-libs/gobject-introspection-1.40
 	doc? ( app-text/xmlto
 	       dev-libs/libxslt )
 "
