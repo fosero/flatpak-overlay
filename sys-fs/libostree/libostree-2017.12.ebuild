@@ -12,15 +12,15 @@ HOMEPAGE="https://github.com/ostreedev/ostree"
 LICENSE="LGPL-2"
 SLOT="0"
 
-IUSE="avahi curl introspection doc +libmount man openssl +soup +systemd"
+IUSE="avahi curl gnutls introspection doc +libmount man openssl +soup +systemd"
 
 KEYWORDS="amd64"
 
 # NOTE: soup/curl is optional, but not if you want to use flatpaks in a meaningful way,
 # so we force it.
 REQUIRED_USE="|| ( soup curl )"
-
 # NOTE2: curl needs soup for tests right now (17 Feb 2017)
+
 RDEPEND="
 	>=dev-libs/glib-2.40:2
 	>=app-arch/xz-utils-5.0.5
@@ -30,6 +30,7 @@ RDEPEND="
 	>=app-arch/libarchive-2.8
 	avahi? ( >=net-dns/avahi-0.6.31 )
 	curl? ( >=net-misc/curl-7.29 )
+	gnutls? ( >=net-libs/gnutls-3.5 )
 	openssl? ( >=dev-libs/openssl-1.0.1 )
 	soup? ( >=net-libs/libsoup-2.40 )
 	systemd? ( sys-apps/systemd )
@@ -62,6 +63,16 @@ src_configure() {
 		myconf+=( $(use_with soup) )
 	fi
 
+	# Crypto for checksums:
+	# prefer gnutls over openssl if both are selected
+	if use gnutls; then
+		myconf+=( --with-crypto=gnutls )
+	elif use openssl; then
+		myconf+=( --with-crypto=openssl )
+	else
+		myconf+=( --with-crypto=glib )
+	fi
+
 	# FIXME: selinux should be use-flagged
 	econf \
 		--without-dracut \
@@ -73,7 +84,6 @@ src_configure() {
 		$(use_enable man) \
 		$(use_with avahi) \
 		$(use_with libmount) \
-		$(use_with openssl) \
 		"${myconf[@]}"
 
 }
