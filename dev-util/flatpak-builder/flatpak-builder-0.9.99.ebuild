@@ -18,6 +18,7 @@ RDEPEND="
 	>=net-libs/libsoup-2.4
 	>=dev-libs/elfutils-0.8.12
 	>=dev-libs/glib-2.44:2
+	>=dev-libs/libxml2-2.4
 	dev-libs/json-glib
 "
 DEPEND="${RDEPEND}
