@@ -9,12 +9,12 @@ HOMEPAGE="http://flatpak.org/"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="doc"
 
 RDEPEND="
-	>=sys-apps/flatpak-0.9.13
-	>=sys-fs/libostree-2017.10
+	>=sys-apps/flatpak-0.10.0
+	>=sys-fs/libostree-2017.12
 	>=net-libs/libsoup-2.4
 	>=dev-libs/elfutils-0.8.12
 	>=dev-libs/glib-2.44:2
