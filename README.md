@@ -1,17 +1,17 @@
 # flatpak-overlay
-A Gentoo ebuild overlay for the [Flatpak](http://flatpak.org/) application distribution format.
+A Gentoo ebuild repository (overlay) for the [Flatpak](http://flatpak.org/) application distribution format.
 
 Note that this only installs the Flatpak application, for usage see the main Flatpak website. 
 
 The Flatpak ebuild does not track actual applications installed by Flatpak like Gentoo would. Flatpak uses [OSTree](https://wiki.gnome.org/Projects/OSTree) to install and track applications and runtimes in /var, so the base Gentoo installation will not be touched. It is also possible to install applications and runtimes on a per user basis only.
 
-## How to use this overlay?
+## How to use this repository?
 
-There are two main methods for making use of this overlay, discussed in the sections below.
+There are two main methods for making use of this repository, discussed in the sections below.
 
-### Local overlays
+### Local repositories
 
-For the [local overlay](https://wiki.gentoo.org/wiki/Overlay/Local_overlay) method, create a `/etc/portage/repos.conf/flatpak-overlay.conf` file containing the following bit of text.
+For the [local repository](https://wiki.gentoo.org/wiki/Handbook:Parts/Portage/CustomTree#Defining_a_custom_repository) method, create a `/etc/portage/repos.conf/flatpak-overlay.conf` file containing the following bit of text.
 
 ```
 [flatpak-overlay]
@@ -26,6 +26,6 @@ Change `repo-location` to a path of your choosing and then run `emerge --sync`, 
 
 ### Layman
 
-You can also use the Layman tool to add and sync the overlay, read the instructions on the [Gentoo Wiki](https://wiki.gentoo.org/wiki/Layman#Adding_custom_repositories).
+You can also use the Layman tool to add and sync the repository, read the instructions on the [Gentoo Wiki](https://wiki.gentoo.org/wiki/Layman#Adding_custom_repositories).
 
 The repositories.xml can be found at `https://raw.githubusercontent.com/fosero/flatpak-overlay/master/repositories.xml`.
