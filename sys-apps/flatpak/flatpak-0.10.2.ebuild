@@ -15,9 +15,9 @@ KEYWORDS="amd64"
 IUSE="doc gnome gtk introspection policykit seccomp"
 
 RDEPEND="
-	>=sys-fs/libostree-2017.12
+	>=sys-fs/libostree-2017.14
 	>=net-libs/libsoup-2.4
-	>=dev-libs/appstream-glib-0.6.1
+	>=dev-libs/appstream-glib-0.5.10
 	>=dev-libs/glib-2.44:2
 	>=dev-libs/libxml2-2.4
 	sys-fs/fuse
