@@ -13,8 +13,8 @@ KEYWORDS="amd64"
 IUSE="doc"
 
 RDEPEND="
-	>=sys-apps/flatpak-0.10.1
-	>=sys-fs/libostree-2017.12
+	>=sys-apps/flatpak-0.10.2
+	>=sys-fs/libostree-2017.14
 	>=net-libs/libsoup-2.4
 	>=dev-libs/elfutils-0.8.12
 	>=dev-libs/glib-2.44:2
