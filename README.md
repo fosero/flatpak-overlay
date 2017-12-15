@@ -18,7 +18,7 @@ For the [local repository](https://wiki.gentoo.org/wiki/Handbook:Parts/Portage/C
 priority = 50
 location = <repo-location>/flatpak-overlay
 sync-type = git
-sync-uri = git://github.com/fosero/flatpak-overlay.git
+sync-uri = https://github.com/fosero/flatpak-overlay.git
 auto-sync = Yes
 ```
 
