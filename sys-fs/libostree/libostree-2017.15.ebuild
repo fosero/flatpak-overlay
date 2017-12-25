@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/ostreedev/ostree"
 LICENSE="LGPL-2"
 SLOT="0"
 
-IUSE="avahi curl gnutls introspection doc +libmount man openssl +soup +systemd"
+IUSE="avahi curl gnutls +http2 introspection doc +libmount man openssl +soup +systemd"
 
 KEYWORDS="amd64"
 
@@ -79,6 +79,7 @@ src_configure() {
 		--without-mkinitcpio \
 		--with-libarchive \
 		--without-selinux \
+		$(use_enable http2) \
 		$(use_enable introspection) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable man) \
