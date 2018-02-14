@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -17,7 +17,8 @@ IUSE="doc"
 
 RDEPEND="
 	dev-libs/glib:2[dbus]
-	sys-apps/flatpak
+	sys-fs/fuse
+	!<=sys-apps/flatpak-0.10.3
 "
 DEPEND="${RDEPEND}
 	>=sys-devel/gettext-0.18.3
@@ -25,11 +26,12 @@ DEPEND="${RDEPEND}
 	doc? ( app-text/xmlto
 	       app-text/docbook-xml-dtd:4.3 )
 "
-
+# FIXME: Add pipewire support.
 src_configure() {
 
 	econf \
 		$(use_enable doc docbook-docs) \
-		--with-systemduserunitdir="$(systemd_get_userunitdir)"
+		--with-systemduserunitdir="$(systemd_get_userunitdir)" \
+		--disable-pipewire
 
 }

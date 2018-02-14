@@ -40,9 +40,9 @@ DEPEND="${RDEPEND}
 "
 # FIXME: is there a nicer way to do this?
 PDEPEND="
-	gtk? ( sys-apps/xdg-desktop-portal
+	gtk? ( >=sys-apps/xdg-desktop-portal-0.10
 	       sys-apps/xdg-desktop-portal-gtk )
-	gnome? ( sys-apps/xdg-desktop-portal
+	gnome? ( >=sys-apps/xdg-desktop-portal-0.10
 		 sys-apps/xdg-desktop-portal-gtk )
 "
 
@@ -78,6 +78,7 @@ src_configure() {
 	# FIXME: the gtk-doc check doesn't seem to be working
 	# FIXME: split out bubblewrap
 	econf \
+		--disable-document-portal \
 		--enable-sandboxed-triggers \
 		--enable-xauth \
 		--localstatedir="${EPREFIX}"/var \
