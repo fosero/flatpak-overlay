@@ -20,7 +20,6 @@ RDEPEND="
 	>=dev-libs/appstream-glib-0.5.10
 	>=dev-libs/glib-2.44:2
 	>=dev-libs/libxml2-2.4
-	sys-fs/fuse
 	sys-apps/dbus
 	dev-libs/json-glib
 	x11-apps/xauth
@@ -77,7 +76,9 @@ src_configure() {
 
 	# FIXME: the gtk-doc check doesn't seem to be working
 	# FIXME: split out bubblewrap
+	# FIXME: p2p still experimental
 	econf \
+		--disable-p2p \
 		--enable-sandboxed-triggers \
 		--enable-xauth \
 		--localstatedir="${EPREFIX}"/var \
