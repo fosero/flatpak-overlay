@@ -10,7 +10,7 @@ HOMEPAGE="http://flatpak.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="doc"
+IUSE="doc +yaml"
 
 RDEPEND="
 	>=sys-apps/flatpak-0.10.2
@@ -20,6 +20,7 @@ RDEPEND="
 	>=dev-libs/glib-2.44:2
 	>=dev-libs/libxml2-2.4
 	dev-libs/json-glib
+	yaml? ( dev-libs/libyaml )
 "
 DEPEND="${RDEPEND}
 	>=sys-devel/gettext-0.18.2
@@ -32,6 +33,7 @@ src_configure() {
 
 	econf \
 		$(use_enable doc documentation) \
-		$(use_enable doc docbook-docs)
+		$(use_enable doc docbook-docs) \
+		$(use_with yaml)
 
 }
