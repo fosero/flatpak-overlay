@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 IUSE="doc gnome gtk introspection policykit seccomp"
 
 RDEPEND="
-	>=sys-fs/libostree-2017.14
+	>=sys-fs/libostree-2017.15
 	>=net-libs/libsoup-2.4
 	>=dev-libs/appstream-glib-0.5.10
 	>=dev-libs/glib-2.44:2
@@ -76,9 +76,8 @@ src_configure() {
 
 	# FIXME: the gtk-doc check doesn't seem to be working
 	# FIXME: split out bubblewrap
-	# FIXME: p2p still experimental
+	# FIXME: p2p still experimental and the make option is automagic
 	econf \
-		--disable-p2p \
 		--enable-sandboxed-triggers \
 		--enable-xauth \
 		--localstatedir="${EPREFIX}"/var \
