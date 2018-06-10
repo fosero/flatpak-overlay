@@ -33,6 +33,7 @@ DEPEND="${RDEPEND}
 	>=sys-devel/gettext-0.18.2
 	virtual/pkgconfig
 	dev-util/gdbus-codegen
+	sys-devel/bison
 	introspection? ( >=dev-libs/gobject-introspection-1.40 )
 	doc? ( >=dev-util/gtk-doc-1.20
 	       dev-libs/libxslt )
