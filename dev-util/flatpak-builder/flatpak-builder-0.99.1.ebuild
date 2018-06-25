@@ -9,17 +9,18 @@ HOMEPAGE="http://flatpak.org/"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="doc +yaml"
 
 RDEPEND="
-	>=sys-apps/flatpak-0.10.2
+	>=sys-apps/flatpak-0.11.8
 	>=sys-fs/libostree-2017.14
 	>=net-libs/libsoup-2.4
 	>=dev-libs/elfutils-0.8.12
 	>=dev-libs/glib-2.44:2
 	>=dev-libs/libxml2-2.4
 	dev-libs/json-glib
+	net-misc/curl
 	yaml? ( dev-libs/libyaml )
 "
 DEPEND="${RDEPEND}
