@@ -13,7 +13,7 @@ KEYWORDS="~amd64"
 IUSE="doc +yaml"
 
 RDEPEND="
-	>=sys-apps/flatpak-0.11.8
+	>=sys-apps/flatpak-0.99.1
 	>=sys-fs/libostree-2017.14
 	>=net-libs/libsoup-2.4
 	>=dev-libs/elfutils-0.8.12
