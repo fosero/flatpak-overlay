@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE="wayland X"
 
-# The X and wayland options are autodetected
+# FIXME: The X and wayland options are autodetected.
 RDEPEND="
 	>=dev-libs/glib-2.44:2[dbus]
 	>=x11-libs/gtk+-3.14:3
