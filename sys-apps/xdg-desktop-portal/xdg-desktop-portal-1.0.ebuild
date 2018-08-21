@@ -27,7 +27,6 @@ DEPEND="${RDEPEND}
 	       app-text/docbook-xml-dtd:4.3 )
 "
 # FIXME: Add pipewire support.
-# TODO: Add coverage support.
 src_configure() {
 
 	econf \
