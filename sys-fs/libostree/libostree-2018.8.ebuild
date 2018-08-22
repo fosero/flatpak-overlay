@@ -14,7 +14,7 @@ SLOT="0"
 
 IUSE="avahi curl gnutls +http2 introspection doc +libmount man openssl +soup +systemd"
 
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 # NOTE: soup/curl is optional, but not if you want to use flatpaks in a meaningful way,
 # so we force it.
