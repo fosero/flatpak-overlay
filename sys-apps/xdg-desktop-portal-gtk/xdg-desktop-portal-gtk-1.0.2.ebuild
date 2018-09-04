@@ -21,7 +21,7 @@ RDEPEND="
 	>=x11-libs/gtk+-3.14:3
 	wayland? ( >=x11-libs/gtk+-3.21.5:3[wayland] )
 	X? ( >=x11-libs/gtk+-3.14:3[X] )
-	sys-apps/xdg-desktop-portal
+	>=sys-apps/xdg-desktop-portal-1.0
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
