@@ -14,6 +14,10 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE="doc gnome gtk introspection policykit seccomp"
 
+PATCHES=(
+	"${FILESDIR}/${P}-glib_build_fix.patch"
+)
+
 RDEPEND="
 	>=sys-fs/libostree-2018.7
 	>=net-libs/libsoup-2.4
