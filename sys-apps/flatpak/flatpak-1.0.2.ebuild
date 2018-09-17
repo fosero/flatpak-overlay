@@ -14,10 +14,6 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE="doc gnome gtk introspection policykit seccomp"
 
-PATCHES=(
-	"${FILESDIR}/${P}-glib_build_fix.patch"
-)
-
 RDEPEND="
 	>=sys-fs/libostree-2018.7
 	>=net-libs/libsoup-2.4
@@ -80,12 +76,14 @@ pkg_setup() {
 src_configure() {
 
 	# FIXME: the gtk-doc check doesn't seem to be working
-	# FIXME: split out bubblewrap
+	# TODO: split out bubblewrap
+	# TODO: split out xdg-dbus-proxy?
 	econf \
 		--enable-sandboxed-triggers \
 		--enable-xauth \
 		--localstatedir="${EPREFIX}"/var \
 		--without-system-bubblewrap \
+		--without-system-dbus-proxy \
 		$(use_enable doc documentation) \
 		$(use_enable doc gtk-doc) \
 		$(use_enable introspection) \
