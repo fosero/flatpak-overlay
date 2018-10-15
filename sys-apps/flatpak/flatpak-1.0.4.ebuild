@@ -46,8 +46,6 @@ PDEPEND="
 		 sys-apps/xdg-desktop-portal-gtk )
 "
 
-PATCHES=( "${FILESDIR}/${P}-var_symlink_fix.diff" )
-
 pkg_pretend() {
 
 	if [ -d "/var/lib/lib/flatpak" ]; then
