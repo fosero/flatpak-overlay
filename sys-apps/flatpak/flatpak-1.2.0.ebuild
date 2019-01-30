@@ -21,7 +21,7 @@ RDEPEND="
 	>=gnome-base/dconf-0.26
 	>=dev-libs/appstream-glib-0.5.10
 	x11-libs/gdk-pixbuf:2
-	>=dev-libs/glib-2.44:2
+	>=dev-libs/glib-2.56:2
 	>=dev-libs/libxml2-2.4
 	sys-apps/dbus
 	dev-libs/json-glib
