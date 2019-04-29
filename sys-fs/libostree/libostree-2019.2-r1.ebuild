@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/ostreedev/ostree"
 LICENSE="LGPL-2"
 SLOT="0"
 
-IUSE="avahi curl gnutls +http2 introspection doc +libmount man openssl +soup +systemd"
+IUSE="avahi curl gnutls +http2 introspection doc +libmount man openssl +soup systemd"
 
 KEYWORDS="amd64"
 
