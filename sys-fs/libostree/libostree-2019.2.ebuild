@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
@@ -27,6 +27,7 @@ RDEPEND="
 	sys-libs/zlib
 	>=sys-fs/fuse-2.9.2
 	>=app-crypt/gpgme-1.1.8
+	dev-libs/libgpg-error
 	>=app-arch/libarchive-2.8
 	avahi? ( >=net-dns/avahi-0.6.31 )
 	curl? ( >=net-misc/curl-7.29 )
