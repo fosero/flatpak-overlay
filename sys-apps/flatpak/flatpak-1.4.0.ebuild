@@ -52,6 +52,9 @@ PDEPEND="
 
 pkg_setup() {
 
+	enewgroup flatpak
+	enewuser flatpak -1 -1 -1 flatpak
+
 	local CONFIG_CHECK="~USER_NS"
 	linux-info_pkg_setup
 
