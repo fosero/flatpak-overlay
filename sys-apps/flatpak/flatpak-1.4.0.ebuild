@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-inherit autotools linux-info
+inherit autotools linux-info user
 
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 DESCRIPTION="Application distribution framework"
