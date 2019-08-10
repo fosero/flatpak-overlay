@@ -12,19 +12,15 @@ HOMEPAGE="http://flatpak.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc"
-
-#FIXME: Needs a newer geoclue.
-#
-#IUSE="doc geolocation"
-#	geolocation? ( >=app-misc/geoclue-2.5.2:2.0 )
-#		$(use_enable geolocation geoclue) \
+IUSE="doc geolocation screencast"
 
 RDEPEND="
 	dev-libs/json-glib
 	dev-libs/glib:2[dbus]
 	media-libs/fontconfig
 	sys-fs/fuse
+	geolocation? ( >=app-misc/geoclue-2.5.2:2.0 )
+	screencast? ( media-video/pipewire )
 "
 DEPEND="${RDEPEND}
 	>=sys-devel/gettext-0.18.3
@@ -37,8 +33,8 @@ src_configure() {
 
 	econf \
 		$(use_enable doc docbook-docs) \
-		--disable-geoclue \
-		--with-systemduserunitdir="$(systemd_get_userunitdir)" \
-		--disable-pipewire
+		$(use_enable geolocation geoclue) \
+		$(use_enable screencast pipewire) \
+		--with-systemduserunitdir="$(systemd_get_userunitdir)"
 
 }
