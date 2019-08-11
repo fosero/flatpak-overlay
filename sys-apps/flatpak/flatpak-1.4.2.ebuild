@@ -12,7 +12,7 @@ HOMEPAGE="http://flatpak.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc gnome gtk introspection policykit seccomp"
+IUSE="doc gnome gtk introspection kde policykit seccomp"
 
 # FIXME: systemd is automagic dep.
 RDEPEND="
