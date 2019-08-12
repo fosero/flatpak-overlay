@@ -50,7 +50,7 @@ PDEPEND="
 	       sys-apps/xdg-desktop-portal-gtk )
 	gnome? ( >=sys-apps/xdg-desktop-portal-0.10
 		 sys-apps/xdg-desktop-portal-gtk )
-	kde? ( sys-apps/xdg-desktop-portal-kde )
+	kde? ( kde-plasma/xdg-desktop-portal-kde )
 "
 
 pkg_setup() {
