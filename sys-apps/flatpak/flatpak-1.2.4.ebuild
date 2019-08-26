@@ -16,7 +16,7 @@ IUSE="doc gnome gtk introspection policykit seccomp"
 
 # FIXME: systemd is automagic dep.
 RDEPEND="
-	>=sys-fs/libostree-2018.9
+	>=sys-fs/libostree-2018.9[gpg(+)]
 	>=net-libs/libsoup-2.4
 	>=gnome-base/dconf-0.26
 	>=dev-libs/appstream-glib-0.5.10
