@@ -29,3 +29,9 @@ Change `repo-location` to a path of your choosing and then run `emaint -r flatpa
 You can also use the Layman tool to add and sync the repository, read the instructions on the [Gentoo Wiki](https://wiki.gentoo.org/wiki/Layman#Adding_custom_repositories).
 
 The repositories.xml can be found at `https://raw.githubusercontent.com/fosero/flatpak-overlay/master/repositories.xml`.
+
+### Eselect
+
+You can also use the eselect tool to add and sync the repository, read the instructions on the [Gentoo Wiki](https://wiki.gentoo.org/wiki/Eselect/Repository).
+
+`eselect repository add flatpak-overlay git https://github.com/fosero/flatpak-overlay.git`
