@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
@@ -12,9 +12,9 @@ HOMEPAGE="https://github.com/ostreedev/ostree"
 LICENSE="LGPL-2"
 SLOT="0"
 
-IUSE="avahi curl gnutls +http2 introspection doc +libmount man openssl +soup systemd"
+IUSE="avahi curl gnutls +gpg +http2 introspection doc +libmount man openssl +soup systemd"
 
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 # NOTE: soup/curl is optional, but not if you want to use flatpaks in a meaningful way,
 # so we force it.
@@ -26,12 +26,12 @@ RDEPEND="
 	>=app-arch/xz-utils-5.0.5
 	sys-libs/zlib
 	>=sys-fs/fuse-2.9.2
-	>=app-crypt/gpgme-1.1.8
-	dev-libs/libgpg-error
 	>=app-arch/libarchive-2.8
 	avahi? ( >=net-dns/avahi-0.6.31 )
 	curl? ( >=net-misc/curl-7.29 )
 	gnutls? ( >=net-libs/gnutls-3.5 )
+	gpg? ( >=app-crypt/gpgme-1.1.8
+		dev-libs/libgpg-error )
 	openssl? ( >=dev-libs/openssl-1.0.1 )
 	soup? ( >=net-libs/libsoup-2.40 )
 	systemd? ( sys-apps/systemd )
@@ -83,6 +83,7 @@ src_configure() {
 		$(use_enable doc gtk-doc) \
 		$(use_enable man) \
 		$(use_with avahi) \
+		$(use_with gpg gpgme) \
 		$(use_with libmount) \
 		$(use_with systemd libsystemd) \
 		"${myconf[@]}"
