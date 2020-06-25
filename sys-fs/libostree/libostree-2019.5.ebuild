@@ -25,7 +25,7 @@ RDEPEND="
 	>=dev-libs/glib-2.40:2
 	>=app-arch/xz-utils-5.0.5
 	sys-libs/zlib
-	>=sys-fs/fuse-2.9.2
+	>=sys-fs/fuse-2.9.2:0
 	>=app-arch/libarchive-2.8
 	avahi? ( >=net-dns/avahi-0.6.31 )
 	curl? ( >=net-misc/curl-7.29 )

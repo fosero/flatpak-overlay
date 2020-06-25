@@ -30,7 +30,7 @@ RDEPEND="
 	x11-apps/xauth
 	>=app-arch/libarchive-2.8
 	>=app-crypt/gpgme-1.1.8
-	>=sys-fs/fuse-2.9.2
+	>=sys-fs/fuse-2.9.2:0
 	policykit? ( >=sys-auth/polkit-0.98 )
 	seccomp? ( sys-libs/libseccomp )
 "
