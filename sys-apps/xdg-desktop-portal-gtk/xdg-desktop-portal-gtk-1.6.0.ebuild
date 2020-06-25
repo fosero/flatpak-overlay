@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/flatpak/xdg-desktop-portal-gtk"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="wayland X"
 
 # FIXME: The X and wayland options are autodetected.
