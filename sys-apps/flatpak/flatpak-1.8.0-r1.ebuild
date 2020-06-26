@@ -15,6 +15,7 @@ KEYWORDS="~amd64"
 IUSE="doc gnome gtk introspection kde policykit seccomp systemd"
 
 # FIXME: Automagic dep on app-arch/zstd
+# NOTE: pyparsing for variant-schema-compiler submodule
 RDEPEND="
 	acct-group/flatpak
 	acct-user/flatpak
@@ -34,6 +35,8 @@ RDEPEND="
 	policykit? ( >=sys-auth/polkit-0.98 )
 	seccomp? ( sys-libs/libseccomp )
 	systemd? ( sys-apps/systemd )
+
+	dev-python/pyparsing
 "
 DEPEND="${RDEPEND}
 	>=sys-devel/automake-1.13.4
