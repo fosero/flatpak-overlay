@@ -1,9 +1,10 @@
 # Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI="7"
+PYTHON_COMPAT=( python3_{7,8} )
 
-inherit autotools linux-info
+inherit autotools linux-info python-any-r1
 
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 DESCRIPTION="Application distribution framework"
@@ -36,8 +37,8 @@ RDEPEND="
 	systemd? ( sys-apps/systemd )
 "
 # NOTE: pyparsing for variant-schema-compiler submodule (build time)
-DEPEND="${RDEPEND}
-	>=sys-devel/automake-1.13.4
+DEPEND="${RDEPEND}"
+BDEPEND=">=sys-devel/automake-1.13.4
 	>=sys-devel/gettext-0.18.2
 	virtual/pkgconfig
 	dev-util/gdbus-codegen
@@ -46,7 +47,9 @@ DEPEND="${RDEPEND}
 	doc? ( >=dev-util/gtk-doc-1.20
 	       dev-libs/libxslt )
 
-	dev-python/pyparsing
+	$(python_gen_any_dep '
+		dev-python/pyparsing[${PYTHON_USEDEP}]
+	')
 "
 # FIXME: is there a nicer way to do this?
 PDEPEND="
@@ -61,6 +64,7 @@ pkg_setup() {
 
 	local CONFIG_CHECK="~USER_NS"
 	linux-info_pkg_setup
+	python-any-r1_pkg_setup
 
 }
 
