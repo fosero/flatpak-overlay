@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{6..9} )
 
 inherit autotools linux-info python-any-r1
 
@@ -59,6 +59,10 @@ PDEPEND="
 		 sys-apps/xdg-desktop-portal-gtk )
 	kde? ( kde-plasma/xdg-desktop-portal-kde )
 "
+
+python_check_deps() {
+	has_version -b "dev-python/pyparsing[${PYTHON_USEDEP}]"
+}
 
 pkg_setup() {
 
