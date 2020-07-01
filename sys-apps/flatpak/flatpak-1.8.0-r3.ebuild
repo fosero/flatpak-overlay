@@ -89,6 +89,6 @@ src_configure() {
 		$(use_enable introspection) \
 		$(use_enable policykit system-helper) \
 		$(use_enable seccomp) \
-		$(use_enable systemd)
+		$(use_with systemd)
 
 }
