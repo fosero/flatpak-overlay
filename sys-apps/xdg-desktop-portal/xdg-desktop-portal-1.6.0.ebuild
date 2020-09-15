@@ -20,7 +20,7 @@ RDEPEND="
 	media-libs/fontconfig
 	sys-fs/fuse:0
 	geolocation? ( >=app-misc/geoclue-2.5.2:2.0 )
-	screencast? ( media-video/pipewire )
+	screencast? ( >=media-video/pipewire-0.2.6:0/0.2 )
 	test? ( sys-libs/libportal )
 "
 DEPEND="${RDEPEND}
@@ -29,7 +29,7 @@ DEPEND="${RDEPEND}
 	doc? ( app-text/xmlto
 	       app-text/docbook-xml-dtd:4.3 )
 "
-# FIXME: Add pipewire support.
+
 src_configure() {
 
 	econf \
