@@ -1,3 +1,12 @@
+# This repo has been phased out (November 2020)
+With the addition of flatpak to the Gentoo main tree the need for this overlay is gone and it will no longer be maintained.
+
+I added a move statement for the alternate libostree naming I used to smoothen the transition.
+
+So long and I hope you enjoyed the journey from a fresh new technology to a stable factor in the ecosystem with me.
+
+---
+
 # flatpak-overlay
 A Gentoo ebuild repository (overlay) for the [Flatpak](http://flatpak.org/) application distribution format.
 
